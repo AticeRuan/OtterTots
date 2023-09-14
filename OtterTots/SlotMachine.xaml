@@ -1,0 +1,76 @@
+﻿<Page
+    x:Class="OtterTots.SlotMachine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OtterTots"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid CornerRadius="40,40,20,20" Loaded="Grid_Loaded">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BGLetters.png"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="6*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Image x:Name="BackButton" Grid.Column="0" Grid.ColumnSpan="2" Source="/Assets/BackButton.png" Tapped="BackButton_Tapped" Margin="7,0,7,55" Grid.RowSpan="2" Grid.Row="1" Canvas.ZIndex="11"/>
+        <Image x:Name="Math" Grid.ColumnSpan="4" Source="/Assets/MathButton.png"  Grid.RowSpan="1" Grid.Row="10"  Margin="114,0,21,0" Tapped="Math_Tapped" Canvas.ZIndex="11" />
+        <Image x:Name="Animals" Grid.ColumnSpan="5" Source="/Assets/AnimalsButton.png"  Grid.RowSpan="1" Grid.Row="10"  Margin="118,0,17,0" Grid.Column="2" Tapped="Animals_Tapped" Canvas.ZIndex="11" />
+        <Image x:Name="ShapesAndColours" Source="/Assets/SCButton.png"  Grid.RowSpan="3" Grid.Row="9"  Grid.Column="7" Margin="0,59,0,31" Tapped="ShapesAndColours_Tapped" Canvas.ZIndex="11" />
+        <Image x:Name="TreasureHunt" Source="/Assets/THButton.png"  Grid.Row="10" Grid.Column="8"  Grid.ColumnSpan="3" Tapped="TreasureHunt_Tapped" Canvas.ZIndex="11" />
+        <Image x:Name="Songs" Source="/Assets/SongsButton.png"  Grid.RowSpan="3" Grid.Row="9" Grid.Column="10" Grid.ColumnSpan="2" FocusVisualPrimaryBrush="#FFF5ECEC" Tapped="Songs_Tapped" Margin="50,0,0,0" Canvas.ZIndex="11" />
+        <Rectangle Stroke="#FFFFF4F4" FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="#99EED8D8" Grid.ColumnSpan="12" Margin="0,58,86,27" Grid.Column="1" Grid.Row="9" Opacity="0.8" Fill="White" Canvas.ZIndex="-1" Grid.RowSpan="3"/>
+        <Image Grid.RowSpan="12" Margin="-69,-171,74,-70" Source="/Assets/slotMachine.png" Grid.ColumnSpan="10" Canvas.ZIndex="-1"/>
+
+        <Image x:Name="reel1" Height="239"  Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Source="/Assets/numbers/question.png" Grid.Column="1" Margin="0,20,20,0" Tapped="reel1_Tapped"  Tag="?"/>
+        <Image x:Name="reel2" Height="239"  Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Source="/Assets/numbers/question.png"  Grid.Column="3" Margin="0,20,20,0" Tag="?" Tapped="reel2_Tapped"/>
+        <Image x:Name="reel3" Height="239"  Grid.Row="4" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.RowSpan="4" Source="/Assets/numbers/question.png" Grid.Column="5" Margin="0,20,20,0" Tag="?" Tapped="reel3_Tapped"/>
+
+        <Image x:Name="tap" Source="/Assets/Tap.gif" Grid.Column="8"  Grid.Row="2" Tapped="tap_Tapped"/>
+        <!--<Image x:Name="check" Grid.RowSpan="3" Grid.Column="9" Margin="4,0,5,55" Grid.Row="6" Grid.ColumnSpan="3" Source="/Assets/letters/MagGlass.png"/>-->
+        <Image x:Name="check" Grid.RowSpan="2" Grid.Column="9" Margin="4,0,5,55" Grid.Row="6" Grid.ColumnSpan="3" Source="/Assets/letters/MagGlass.png" RenderTransformOrigin="0.203,0.556" Tapped="check_Tapped"/>
+        <Image Grid.RowSpan="9" Grid.Column="7" Margin="73,56,-46,5" Grid.Row="1" Grid.ColumnSpan="7" Source="/Assets/letters/blackBoard.png" Canvas.ZIndex="-2"/>
+        <TextBlock x:Name="word"  TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.Column="9"  Grid.Row="4" Grid.RowSpan="2" FontFamily="Ink Free" Foreground="White" FontSize="30" Margin="50,0,0,0"/>
+
+        <Image x:Name="coin" Height="50" Width="50" Grid.Column="2"  Grid.Row="1" Source="/Assets/point.png" />
+        <TextBlock x:Name="point" Text="$10000000" Grid.Column="3" Grid.ColumnSpan="3"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Broadway" FontSize="20" Foreground="#B08A14" Margin="10,0,0,0"/>
+        <Image x:Name="over" Height="300"  Width="300" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="5" Canvas.ZIndex="-10"/>
+        <Rectangle x:Name="white"   Stroke="Black"  Fill="White" Grid.Column="0" Grid.ColumnSpan="14" Grid.Row="0" Grid.RowSpan="12" Opacity="0" Canvas.ZIndex="-2"/>
+
+
+
+
+
+
+    </Grid>
+</Page>

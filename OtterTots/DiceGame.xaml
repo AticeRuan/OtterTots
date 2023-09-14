@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="OtterTots.DiceGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:OtterTots"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid CornerRadius="40,40,20,20" Loaded="Grid_Loaded">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/BGMath.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="6*" />
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Image x:Name="BackButton" Grid.Column="0" Grid.ColumnSpan="2" Source="/Assets/BackButton.png" Tapped="BackButton_Tapped" 
+               Grid.RowSpan="2" Grid.Row="1" Margin="50,0,50,50" Canvas.ZIndex="11"/>
+        <Image x:Name="Num1" Grid.ColumnSpan="3" Source="/Assets/numbers/question.png"  Grid.RowSpan="4" Grid.Row="3"/>
+        <Image x:Name="Num2" Grid.Column="4" Grid.ColumnSpan="3" Source="/Assets/numbers/question.png"  Grid.RowSpan="4" Grid.Row="3"/>
+        <Image x:Name="Answer" Grid.Column="8" Grid.ColumnSpan="3" Source="/Assets/numbers/question.png"  Grid.RowSpan="4" Grid.Row="3" Tapped="Answer_Tapped" Canvas.ZIndex="10"/>
+        <Image x:Name="Op" Grid.Column="3"  Source="/Assets/numbers/opAtStart.png"  Grid.RowSpan="4" Grid.Row="3"/>
+        <Image x:Name="Equal" Grid.Column="6" Grid.ColumnSpan="3" Source="/Assets/numbers/equal.png"  Grid.RowSpan="3" Grid.Row="4" Margin="68,0,67,0"/>
+        <Image x:Name="Roll" Grid.Column="4" Grid.ColumnSpan="3" Source="/Assets/RollButton.png"  Grid.RowSpan="2" Grid.Row="7" Tapped="Roll_Tapped" Canvas.ZIndex="2"/>
+        <Image x:Name="bird" Grid.Column="4"  Source="/Assets/Bird.gif"   Grid.Row="7" HorizontalAlignment="Left" />
+        <Rectangle Stroke="#FFFFF4F4" FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="#99EED8D8" Grid.ColumnSpan="11" Margin="112,45,86,10" Grid.Row="9" Opacity="0.8" Fill="White" Canvas.ZIndex="-1" Grid.RowSpan="3" />
+        <Image x:Name="Letters" Grid.ColumnSpan="3" Source="/Assets/LettersButton.png"  Grid.RowSpan="1" Grid.Row="10"  Margin="114,0,21,0" Tapped="Letters_Tapped" Canvas.ZIndex="11"/>
+        <Image x:Name="Animals" Grid.ColumnSpan="3" Source="/Assets/AnimalsButton.png"  Grid.RowSpan="1" Grid.Row="10"  Margin="118,0,17,0" Grid.Column="2" Tapped="Animals_Tapped" Canvas.ZIndex="11" />
+        <Image x:Name="ShapesAndColours" Source="/Assets/SCButton.png"  Grid.RowSpan="3" Grid.Row="9"  Grid.Column="5" Margin="0,59,0,31" Tapped="ShapesAndColours_Tapped" Canvas.ZIndex="11"/>
+        <Image x:Name="TreasureHunt" Source="/Assets/THButton.png"  Grid.Row="10" Grid.Column="6"  Grid.ColumnSpan="3" Tapped="TreasureHunt_Tapped" Canvas.ZIndex="11"/>
+        <Image x:Name="Songs" Source="/Assets/SongsButton.png"  Grid.RowSpan="3" Grid.Row="9" Grid.Column="8" Margin="107,31,106,8" Grid.ColumnSpan="3" FocusVisualPrimaryBrush="#FFF5ECEC" Tapped="Songs_Tapped" Canvas.ZIndex="11" />
+        <Rectangle Stroke="#FFFFF4F4" FocusVisualPrimaryBrush="White" FocusVisualSecondaryBrush="#99EED8D8" Grid.ColumnSpan="11" Margin="112,45,86,10" Grid.Row="9" Opacity="0.61" Fill="White" Canvas.ZIndex="-1" Grid.RowSpan="3"/>
+        <TextBlock x:Name="Answer1" Text="" TextWrapping="Wrap" FontFamily="Engravers MT" Foreground="#F7E638" FontSize="180" Grid.Column="8" Grid.RowSpan="4" Grid.Row="3" Grid.ColumnSpan="3" HorizontalAlignment="Center" Opacity="0" />
+        <Ellipse x:Name="whiteBase" Grid.RowSpan="2" Stroke="White" Grid.Column="4" Margin="0,10,10,0" Grid.Row="7" Grid.ColumnSpan="3" Fill="#FFF9F9F9" Canvas.ZIndex="-5" Opacity="0.6"/>
+
+        <Image x:Name="coin" Height="50" Width="50" Grid.Column="2"  Grid.Row="1" Source="/Assets/point.png" />
+        <TextBlock x:Name="point" Text="$10000000" Grid.Column="3" Grid.ColumnSpan="3"  Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Broadway" FontSize="20" Foreground="#FFF7E638" Margin="10,0,0,0"/>
+        <Button x:Name="option1" Content="Button" Grid.Column="2"  Grid.Row="8" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="270" Background="#FBF7E638" FontSize="40" FontFamily="Engravers MT" Opacity="0" HorizontalAlignment="Center" FocusVisualPrimaryBrush="White" Tapped="option1_Tapped" Margin="0,0,0,30" />
+        <Button x:Name="option2" Content="Button" Grid.Column="5"  Grid.Row="8" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="270" Background="#FBF7E638" FontSize="40" FontFamily="Engravers MT" Opacity="0" HorizontalAlignment="Center" Tapped="option2_Tapped" Margin="0,0,0,30"/>
+        <Button x:Name="option3" Content="Button" Grid.Column="8"  Grid.Row="8" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="100" Grid.RowSpan="2" Width="270" Background="#FBF7E638" FontSize="40" FontFamily="Engravers MT" Opacity="0" HorizontalAlignment="Center" Tapped="option3_Tapped" Margin="0,0,0,30" FocusVisualPrimaryBrush="White" Foreground="Black"/>
+
+        <Image x:Name="over" Height="300"  Width="300" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="4" Grid.RowSpan="5" Canvas.ZIndex="-10"/>
+        <Rectangle x:Name="white"   Stroke="Black"  Fill="White" Grid.Column="0" Grid.ColumnSpan="14" Grid.Row="0" Grid.RowSpan="12" Opacity="0" Canvas.ZIndex="-2"/>
+
+
+
+
+
+
+
+
+
+    </Grid>
+</Page>
